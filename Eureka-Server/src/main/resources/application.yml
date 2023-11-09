@@ -1,0 +1,15 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: eurekaserver
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/, http://localhost:8082
+      registry-fetch-interval-seconds: 3 #3秒钟去eureka拿一次微服务注册实例，默认值 30
+
